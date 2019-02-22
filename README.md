@@ -12,7 +12,7 @@
 | Container Name | :heavy_check_mark: | :heavy_check_mark: |  container_name  | name |*either*|
 | Environment Variables | :heavy_check_mark: | :heavy_check_mark: | environment *(map)* | env *(list)* |*either*|
 | Ports| :heavy_check_mark: | :heavy_check_mark: | ports | Service.Spec.ports | ports |
-| Container Labels | :heavy_check_mark: | :heavy_check_mark: | labels| metadata.labels |*either*|
+| Container Labels | :heavy_check_mark: | :heavy_check_mark: | labels| Pod.Spec.metadata.labels |*either*|
 | Healthcheck | :heavy_check_mark: | :heavy_check_mark: | healthcheck | livenessProbe |livenessProbe|
 | Host Network| :x: | :heavy_check_mark: | network_mode | Pod.Spec.hostNetwork |*either*|
 | Host PID| :heavy_check_mark: | :heavy_check_mark: | pid | Pod.Spec.hostPID |*either*|

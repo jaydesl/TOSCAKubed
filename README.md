@@ -5,7 +5,7 @@
 
 ## Supported field names for Docker Container Properties 
 
-|Docker Runtime Option| 0.7.1 | 0.7.2 | Swarm Docker-Compose (services) | Kubernetes Manifest (Pod.Spec.Container) | TOSCA ADT Name |
+|Docker Runtime Option| 0.7.1 | 0.7.2 | Swarm Docker-Compose Name | Kubernetes Manifest (Pod.Spec.Container) Name | TOSCA ADT Name |
 |--|:--:|:--:|--|--|--|
 | Container Run Command | :heavy_check_mark: | :heavy_check_mark: | entrypoint  | command |*either*|
 | Container Arguments | :heavy_check_mark: | :heavy_check_mark: |   command  | args |*either*|

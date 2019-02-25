@@ -5,20 +5,21 @@
 
 ## Supported field names for Docker Container Properties 
 
-|Docker Runtime Option| 0.7.1 | 0.7.2 | Swarm Docker-Compose Name | Kubernetes Manifest (Pod.Spec.Container) Name | TOSCA ADT Name |
-|--|:--:|:--:|--|--|--|
-| Container Run Command | :heavy_check_mark: | :heavy_check_mark: | entrypoint  | command |*either*|
-| Container Arguments | :heavy_check_mark: | :heavy_check_mark: |   command  | args |*either*|
-| Container Name | :heavy_check_mark: | :heavy_check_mark: |  container_name  | name |*either*|
-| Environment Variables | :heavy_check_mark: | :heavy_check_mark: | environment *(map)* | env *(list)* |*either*|
-| Ports| :heavy_check_mark: | :heavy_check_mark: | ports | Service.Spec.ports | ports |
-| Container Labels | :heavy_check_mark: | :heavy_check_mark: | labels| Pod.Spec.metadata.labels |*either*|
-| Healthcheck | :heavy_check_mark: | :heavy_check_mark: | healthcheck | livenessProbe |livenessProbe|
-| Host Network| :x: | :heavy_check_mark: | network_mode | Pod.Spec.hostNetwork |*either*|
-| Host PID| :heavy_check_mark: | :heavy_check_mark: | pid | Pod.Spec.hostPID |*either*|
-| Shutdown Grace Period | :heavy_check_mark: | :heavy_check_mark: | stop_grace_period | Pod.Spec. terminationGracePeriodSeconds |*either*|
-| Allocate a TTY | :heavy_check_mark: | :heavy_check_mark: | tty | tty |*either*|
-| Keep STDIN open | :heavy_check_mark: | :heavy_check_mark: | stdin_open | stdin |*either*|
+|Docker Runtime Option| 0.7.1 | 0.7.2 | Swarm Docker-Compose Name | Kubernetes Manifest (Pod.Spec.Container) Name | Mesos Marathon Name | TOSCA ADT Name |
+|--|:--:|:--:|--|--|--|--|
+| Container Run Command | :heavy_check_mark: | :heavy_check_mark: | entrypoint  | command | args/cmd | *Swarm or Kube*|
+| Container Arguments | :heavy_check_mark: | :heavy_check_mark: |   command  | args | args/cmd |*Swarm or Kube*|
+| Container Name | :heavy_check_mark: | :heavy_check_mark: |  container_name  | name | id |*Swarm or Kube*|
+| Environment Variables | :heavy_check_mark: | :heavy_check_mark: | environment *(map)* | env *(list)* | env *(map)* |*Swarm or Kube*|
+| Ports| :heavy_check_mark: | :heavy_check_mark: | ports | Service.Spec.ports | portMappings | ports |
+| Container Labels | :heavy_check_mark: | :heavy_check_mark: | labels | Pod.Spec.metadata.labels | labels |*any*|
+| Healthcheck | :heavy_check_mark: | :heavy_check_mark: | healthcheck | livenessProbe | healthchecks | livenessProbe|
+| Host Network| :x: | :heavy_check_mark: | network_mode | Pod.Spec.hostNetwork | networks.mode | *Swarm or Kube*|
+| Host PID| :heavy_check_mark: | :heavy_check_mark: | pid | Pod.Spec.hostPID | parameters.pid | *Swarm or Kube*|
+| Elevate privileges | :x: | :heavy_check_mark: | *not supported* (as of v18.09) | privileged | privileged | *Kube or Mesos* |
+| Shutdown Grace Period | :heavy_check_mark: | :heavy_check_mark: | stop_grace_period | Pod.Spec. terminationGracePeriodSeconds |taskKillGracePeriodSeconds|*Swarm or Kube*|
+| Allocate a TTY | :heavy_check_mark: | :heavy_check_mark: | tty | tty | parameters.tty | *Swarm or Kube*|
+| Keep STDIN open | :heavy_check_mark: | :heavy_check_mark: | stdin_open | stdin | parameters.ineractive |*Swarm or Kube*|
 
 ## Supported field names for Kubernetes create interface inputs (Workload creation)
 
